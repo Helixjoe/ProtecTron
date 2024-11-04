@@ -1,8 +1,10 @@
-// src/components/Login.js
 import google from '../assets/images/google-icon.png'
+import Header from '../components/Header'
+import { Link } from 'react-router-dom'
 function Login() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <Header type="login" />
       <div className="w-full max-w-md p-8  bg-white border border-gray-200 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center text-blue-700 py-6">Login</h2>
 
@@ -31,13 +33,14 @@ function Login() {
           </div>
 
           {/* Login Button */}
-          <button
-            type="submit"
-            className="w-full py-2 mt-4 text-sm font-semibold text-white bg-blue-700 rounded-md hover:bg-blue-800"
-          >
-            Login
-          </button>
-
+          <Link to="/dashboard">
+            <button
+              type="submit"
+              className="w-full py-2 mt-4 text-sm font-semibold text-white bg-blue-700 rounded-md hover:bg-blue-800"
+            >
+              Login
+            </button>
+          </Link>
           {/* OR Separator */}
           <div className="flex items-center justify-center mt-4">
             <span className="text-xs text-gray-500">OR</span>
@@ -55,13 +58,6 @@ function Login() {
             />
             Continue with Google
           </button>
-
-          {/* Create an Account Link */}
-          <p className="mt-4 text-center text-sm text-blue-700">
-            <a href="#" className="hover:underline">
-              Create an account
-            </a>
-          </p>
         </form>
       </div>
     </div>

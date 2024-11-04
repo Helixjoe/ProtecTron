@@ -1,9 +1,10 @@
 import homepage from '../assets/images/homepage.png'
-
+import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 function Home() {
   return (
-    <div className="flex items-center justify-center  bg-white">
+    <div className="flex flex-col items-center justify-center  bg-white">
+      <Header type="login" />
       {/* Main container */}
       <div className="w-full max-w-4xl flex flex-col p-6 ">
         {/* Header */}

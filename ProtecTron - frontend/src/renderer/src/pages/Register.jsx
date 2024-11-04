@@ -1,8 +1,11 @@
 // src/components/Login.js
 import google from '../assets/images/google-icon.png'
+import Header from '../components/Header'
+import { Link } from 'react-router-dom'
 function Register() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <Header type="register" />
       <div className="w-full max-w-md p-8  bg-white border border-gray-200 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-center text-blue-700 ">Sign Up</h2>
 
@@ -36,13 +39,14 @@ function Register() {
           </div>
 
           {/* Login Button */}
-          <button
-            type="submit"
-            className="w-full py-2 mt-4 text-sm font-semibold text-white bg-blue-700 rounded-md hover:bg-blue-800"
-          >
-            Sign up
-          </button>
-
+          <Link to="dashboard">
+            <button
+              type="submit"
+              className="w-full py-2 mt-4 text-sm font-semibold text-white bg-blue-700 rounded-md hover:bg-blue-800"
+            >
+              Sign up
+            </button>
+          </Link>
           {/* OR Separator */}
           <div className="flex items-center justify-center mt-4">
             <span className="text-xs text-gray-500">OR</span>
