@@ -3,6 +3,7 @@ import homedu from '../assets/images/homedu.png'
 import quiz from '../assets/images/quiz.png'
 import info from '../assets/images/info.png'
 import educat from '../assets/images/educat.png'
+import Quiz from './Quiz'
 function EducationFeatures() {
   const [selectedFeature, setSelectedFeature] = useState('scanfiles')
 
@@ -12,7 +13,7 @@ function EducationFeatures() {
       case 'scanfiles':
         return <div></div>
       case 'quicktime':
-        return <div>Quick Time Scanning Content</div>
+        return <Quiz />
       case 'ram':
         return <div>Ram Booster Content</div>
       case 'advanceai':
