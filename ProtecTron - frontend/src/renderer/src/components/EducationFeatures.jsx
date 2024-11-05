@@ -5,6 +5,7 @@ import info from '../assets/images/info.png'
 import educat from '../assets/images/educat.png'
 import Quiz from './Quiz'
 import EduHome from './EduHome'
+import CoursePathway from './CoursePathway'
 function EducationFeatures() {
   const [selectedFeature, setSelectedFeature] = useState('home')
 
@@ -17,8 +18,8 @@ function EducationFeatures() {
         return <Quiz />
       case 'ram':
         return <div>Ram Booster Content</div>
-      case 'advanceai':
-        return <div>Advanced AI Scan Content</div>
+      case 'course':
+        return <CoursePathway />
       default:
         return <div>Select a feature to see more details.</div>
     }
@@ -51,7 +52,7 @@ function EducationFeatures() {
             <h1>Information Hub</h1>
           </div>
           <div
-            onClick={() => setSelectedFeature('advanceai')}
+            onClick={() => setSelectedFeature('course')}
             className="py-7 px-6  flex items-center gap-4 hover:underline underline-offset-2 cursor-pointer"
           >
             <img src={educat} className="h-6" />
