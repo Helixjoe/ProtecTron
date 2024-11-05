@@ -4,15 +4,16 @@ import quiz from '../assets/images/quiz.png'
 import info from '../assets/images/info.png'
 import educat from '../assets/images/educat.png'
 import Quiz from './Quiz'
+import EduHome from './EduHome'
 function EducationFeatures() {
-  const [selectedFeature, setSelectedFeature] = useState('scanfiles')
+  const [selectedFeature, setSelectedFeature] = useState('home')
 
   // Content to display for each feature
   const renderFeatureContent = () => {
     switch (selectedFeature) {
-      case 'scanfiles':
-        return <div></div>
-      case 'quicktime':
+      case 'home':
+        return <EduHome />
+      case 'quiz':
         return <Quiz />
       case 'ram':
         return <div>Ram Booster Content</div>
@@ -29,14 +30,14 @@ function EducationFeatures() {
         {/* Left Panel */}
         <div className="flex flex-col py-1 mx-2 h-full gap-2 border-2 bg-blue-600 rounded-2xl mt-8 text-white">
           <div
-            onClick={() => setSelectedFeature('scanfiles')}
-            className={`py-7 px-6  flex items-center gap-4 ${selectedFeature === 'scanfiles' ? 'underline' : 'hover:underline'} underline-offset-2 cursor-pointer`}
+            onClick={() => setSelectedFeature('home')}
+            className={`py-7 px-6  flex items-center gap-4 ${selectedFeature === 'home' ? 'underline' : 'hover:underline'} underline-offset-2 cursor-pointer`}
           >
             <img src={homedu} className="h-7" />
             <h1>Home</h1>
           </div>
           <div
-            onClick={() => setSelectedFeature('quicktime')}
+            onClick={() => setSelectedFeature('quiz')}
             className="py-7 px-6 flex items-center gap-4 hover:underline underline-offset-2 cursor-pointer"
           >
             <img src={quiz} className="h-7" />

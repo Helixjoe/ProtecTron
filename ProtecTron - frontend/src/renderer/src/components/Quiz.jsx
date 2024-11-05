@@ -162,7 +162,7 @@ const Quiz = () => {
       {
         question: currentQuestion.question,
         selectedAnswer,
-        correctAnswer: currentQuestion.answer,
+        correctAnswer: currentQuestion.options[currentQuestion.answer],
         isCorrect
       }
     ])
@@ -178,7 +178,7 @@ const Quiz = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 w-full">
+    <div className="flex flex-col items-center justify-center h-full p-4 w-full">
       {!showResults ? (
         questions.length > 0 && (
           <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-lg">
@@ -211,21 +211,37 @@ const Quiz = () => {
           <p className="text-lg mb-2">Total Correct Answers: {score}</p>
           <p className="text-lg mb-6">Total Incorrect Answers: {questions.length - score}</p>
           <h3 className="text-xl font-semibold mb-4">Review Answers</h3>
-          <ul className="space-y-4 text-left overflow-auto flex justify-around">
-            {results.map((result, index) => (
-              <li key={index} className="p-4 bg-gray-100 rounded-lg w-full">
-                <strong>Question:</strong> {result.question}
-                <br />
-                <strong>Your Answer:</strong> {result.selectedAnswer} -{' '}
-                {result.isCorrect ? 'Correct' : 'Incorrect'}
-                <br />
-                {!result.isCorrect && (
-                  <>
-                    <strong>Correct Answer:</strong> {result.correctAnswer}
-                  </>
-                )}
-              </li>
-            ))}
+          <ul className="space-y-4 text-left h-[15rem] overflow-y-scroll">
+            {results.map(
+              (result, index) =>
+                result.isCorrect && (
+                  <li key={index} className="p-4 rounded-lg w-full bg-red-400">
+                    <strong>Question:</strong> {result.question}
+                    <br />
+                    <strong>Your Answer:</strong> {result.selectedAnswer} <br />
+                    {!result.isCorrect && (
+                      <>
+                        <strong>Correct Answer:</strong> {result.correctAnswer}
+                      </>
+                    )}
+                  </li>
+                )
+            )}
+            {results.map(
+              (result, index) =>
+                !results.isCorrect && (
+                  <li key={index} className="p-4  rounded-lg w-full bg-green-300">
+                    <strong>Question:</strong> {result.question}
+                    <br />
+                    <strong>Your Answer:</strong> {result.selectedAnswer} <br />
+                    {!result.isCorrect && (
+                      <>
+                        <strong>Correct Answer:</strong> {result.correctAnswer}
+                      </>
+                    )}
+                  </li>
+                )
+            )}
           </ul>
         </div>
       )}
